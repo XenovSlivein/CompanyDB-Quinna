@@ -2,7 +2,7 @@ body{
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	background: url(testpic.jpg) no-repeat top center;
+	background: url() no-repeat top center; /* D:/Xampp/htdocs/CompanyDB-Quinna/resources/picture/q_queen.PNG */
 	background-size: cover;
 	font-family: sans-serif;
 	height: 100vh; 
@@ -16,11 +16,6 @@ body{
   	list-style: none;
   	text-decoration: none;
 }
-/* nav.header-nav{
-  	background: #000;
-  	height: 80px;
-  	width: 100%;
-} */
 a.homepagelink,a:hover{
 	text-align: left;
 	color: #f2f2f2;
@@ -31,13 +26,10 @@ a.homepagelink,a:hover{
   	font-family: 'Poppins', sans-serif;
 }
 nav ul{
-  	float: right;
-  	margin-right: 60px;
+  	float: center;
 }
 nav ul li{
-  	display: inline-block;
-  	line-height: 80px;
-  	margin: 0 2px;
+  	line-height: 50px;
 }
 nav ul li a{
   	color: #f2f2f2;
@@ -48,8 +40,12 @@ nav ul li a{
   	font-family: 'Poppins', sans-serif;
 }
 a.active,a:hover{
-  	/* background: blue; */
+	  /* background: blue; */
   	transition: .5s;
+}
+
+.sidelink{
+	left: 0;
 }
 
  /* The sidenav */

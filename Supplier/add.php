@@ -68,7 +68,7 @@
             //   }
 
             // Show message when user added
-            echo "Record updated successfully <a href='index.php'>View Supplier Details</a>";
+            echo "Record added successfully <a href='index.php'>View Supplier Details</a>";
         }
         ?>
     </body>
