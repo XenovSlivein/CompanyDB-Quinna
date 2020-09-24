@@ -58,6 +58,7 @@
             
             <table class='table table-bordered table-striped' width='80%' border=1>
                 <tr>
+                    <th>Branch ID</th>
                     <th>Supplier Name</th> 
                     <th>Supply Type</th>
                     <th>Update</th>
@@ -65,11 +66,12 @@
                 <?php  
                     while($row = mysqli_fetch_array($result)) {         
                         echo "<tr>";
+                            echo "<td>".$row['branch_id']."</td>";
                             echo "<td>".$row['supplier_name']."</td>";
                             echo "<td>".$row['supply_type']."</td>";  
                             echo "<td>";
 	                        echo "<a href='edit.php?id=". $row['branch_id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-	                        echo "<a href='delete.php?id=". $row['branch_id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+	                        echo "<a href='delete.php?id=". $row['branch_id'] ."&supplier_name=". $row['supplier_name'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
 	                        echo "</td>";       
                         echo "<tr>";
                     }

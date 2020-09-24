@@ -29,19 +29,18 @@
                     <td>Manager ID</td>
                     <td>
                     <form method="POST">
-                        <select name="managerID" id="mgr_id">
-                            <option disabled selected> ---Select--- </option>
+                        <select name="mgr_id" id="mgr_id">
+                            <option disabled selected> --- Select --- </option>
                             <?php 
-                                $sql=mysqli_query($mysqli, "SELECT * FROM branch");
+                                $sql=mysqli_query($mysqli, "SELECT * FROM employee");
                                 while ($data=mysqli_fetch_array($sql)) {
                             ?>
-                                <option value="<?=$data['branch']?>"><?=$data['mgr_id']?></option> 
+                                <option value="<?=$data['emp_id']?>"><?=$data['emp_id']?></option> 
                             <?php
                                 }
                             ?>
                         </select>
                     </form>
-                    </td>
                 </tr>
                 <tr> 
                     <td>Manager Start Date</td>
@@ -70,10 +69,18 @@
             $mgr_start_date = $_POST['mgr_start_date'];
 
             // Insert user data into table
-            $result = mysqli_query($mysqli, "INSERT INTO branch (branch_id, branch_name,mgr_id,mgr_start_date) VALUES('$branch_id','$branch_name','$mgr_id','$mgr_start_date')");
+            $result = mysqli_query($mysqli, "INSERT INTO branch (branch_id, branch_name, mgr_id, mgr_start_date) VALUES('$branch_id','$branch_name','$mgr_id','$mgr_start_date')");
+
+            //Check Query Error
+            // if ($mysqli->query($result) === TRUE) {
+            //     // Show message when user added
+            //     echo "Record updated successfully <a href='index.php'>View Users</a>";
+            //   } else {
+            //     echo "Error updating record: " . $mysqli->error;
+            //   }
 
             // Show message when user added
-            echo "Branch added successfully. <a href='index.php'>View Users</a>";
+            echo "Record updated successfully <a href='index.php'>View Branch Details</a>";
         }
         ?>
     </body>

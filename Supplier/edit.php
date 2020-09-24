@@ -34,6 +34,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM branch_supplier WHERE branch_id=$
 
 while($user_data = mysqli_fetch_array($result))
 {
+    $branch_id = $user_data['branch_id'];
     $supplier_name = $user_data['supplier_name'];
     $supply_type = $user_data['supply_type'];
 }
@@ -50,6 +51,10 @@ while($user_data = mysqli_fetch_array($result))
 
         <form name="update_user" method="post" action="edit.php">
             <table border="0">
+                <tr> 
+                    <td>Branch ID</td>
+                    <td><input type="text" name="branch_id" value="<?php echo $branch_id;?>" disabled="disabled"</td>
+                </tr>
                 <tr> 
                     <td>Supplier Name</td>
                     <td><input type="text" name="supplier_name" value=<?php echo $supplier_name;?>></td>

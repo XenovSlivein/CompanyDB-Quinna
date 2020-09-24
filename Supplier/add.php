@@ -9,10 +9,28 @@
 
         <form action="add.php" method="post" name="Form_Add">
             <table width="25%" border="0">
-                <!-- <tr> 
+                <tr> 
                     <td>Branch ID</td>
-                    <td><input type="number" name="branch_id"></td>
-                </tr> -->
+                    <td>
+                    <form method="POST">
+                        <select name="branch_id" id="branch_id">
+                            <option disabled selected> --- Select --- </option>
+                            <?php 
+                                // include database connection file
+                                include_once("D:\\Xampp\\htdocs\\CompanyDB-Quinna\\config.php");
+
+                                $sql=mysqli_query($mysqli, "SELECT * FROM branch");
+                                while ($data=mysqli_fetch_array($sql)) {
+                            ?>
+                                <option value="<?=$data['branch_id']?>"><?=$data['branch_id'] ?></option> 
+                                <!-- , ' - ' ,  $data['branch_name'] -->
+                            <?php
+                                }
+                            ?>
+                        </select>
+                    </form>
+                    </td>
+                </tr>
                 <tr> 
                     <td>Supplier Name</td>
                     <td><input type="text" name="supplier_name"></td>
@@ -32,23 +50,25 @@
 
         // Check If form submitted, insert form data into branch_supplier table.
         if(isset($_POST['Submit'])) {
-            $supplier_name = $_POST['supplier_name'];
-            $supply_type = $_POST['supply_type'];
-
             // include database connection file
             include_once("D:\\Xampp\\htdocs\\CompanyDB-Quinna\\config.php");
 
+            $branch_id = $_POST['branch_id'];
+            $supplier_name = $_POST['supplier_name'];
+            $supply_type = $_POST['supply_type'];
+
             // Insert user data into table
-            $result = mysqli_query($mysqli, "INSERT INTO branch_supplier (supplier_name,supply_type) VALUES('$supplier_name','$supply_type')");
+            $result = mysqli_query($mysqli, "INSERT INTO branch_supplier (branch_id, supplier_name, supply_type) VALUES('$branch_id','$supplier_name','$supply_type')");
 
-            if ($mysqli->query($result) === TRUE) {
-                echo "Record updated successfully";
-              } else {
-                echo "Error updating record: " . $mysqli->error;
-              }
+            // //Check Query Error
+            // if ($mysqli->query($result) === TRUE) {
+            //     echo "Record updated successfully";
+            //   } else {
+            //     echo "Error updating record: " . $mysqli->error;
+            //   }
 
-            // // Show message when user added
-            // echo "Branch Supplier Added Successfully. <a href='index.php'>View Suppliers</a>";
+            // Show message when user added
+            echo "Record updated successfully <a href='index.php'>View Supplier Details</a>";
         }
         ?>
     </body>

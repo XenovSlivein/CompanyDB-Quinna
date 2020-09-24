@@ -52,7 +52,7 @@ while($user_data = mysqli_fetch_array($result))
             <table border="0">
                 <tr> 
                     <td>Branch ID</td>
-                    <td><input type="text" name="branch_id" value=<?php echo $branch_id;?> readonly></td>
+                    <td><input type="text" name="branch_id" value=<?php echo $branch_id;?> disabled="disabled"></td>
                 </tr>
                 <tr> 
                     <td>Branch Name</td>
@@ -60,7 +60,7 @@ while($user_data = mysqli_fetch_array($result))
                 </tr>
                 <tr> 
                     <td>Manager ID</td>
-                    <td><input type="text" name="mgr_id" value=<?php echo $mgr_id;?> readonly></td>
+                    <td><input type="text" name="mgr_id" value=<?php echo $mgr_id;?> disabled="disabled"></td>
                 </tr>
                 <tr> 
                     <td>Manager Start Date</td>
