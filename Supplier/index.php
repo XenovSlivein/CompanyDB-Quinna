@@ -1,18 +1,15 @@
-<?php
-// Create database connection using config file
-include_once("D:\\Xampp\\htdocs\\CompanyDB-Quinna\\config.php");
-
-// Fetch all users data from database
-$result = mysqli_query($mysqli, "SELECT * FROM branch_supplier ORDER BY branch_id ASC"); 
-//WHERE active_status=1
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>    
+    <head> 
+        <meta charset="utf-8">
         <title>Company</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Links -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- Scripts -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
         <style type="text/css">
@@ -31,44 +28,53 @@ $result = mysqli_query($mysqli, "SELECT * FROM branch_supplier ORDER BY branch_i
 	        $(document).ready(function(){
 	            $('[data-toggle="tooltip"]').tooltip();   
 	        });
-	    </script>
+        </script>
     </head>
     <body>
-        <nav>
-		    <a class="homepagelink" href="Homepage.php">Company</a>
-			<ul>
-				<li><a class="activelink" href="Employee/Employee_Details.php">Employee Details</a></li>
-				<li><a class="activelink" href="Branch_Details.php">Branch</a></li>
-				<li><a class="activelink" href="Supplier/index.php">Supplier</a></li>
-			</ul>
-        </nav>
-                
-        <div class="page-header clearfix">
-	        <h2 class="pull-left">Supplier Details</h2>
-	        <a href="add.php" class="btn btn-success pull-right">Add New Supplier</a>
-        </div>
-        
-        <!-- <a href="add.php">Add New Employee</a><br/><br/> -->
+        <?php
+            // Create database connection using config file
+            include_once("D:\\Xampp\\htdocs\\CompanyDB-Quinna\\config.php");
 
-        <table class='table table-bordered table-striped' width='80%' border=1>
-            <tr>
-                <th>Supplier Name</th> 
-                <th>Supply Type</th>
-            </tr>
-            <?php  
-            while($row = mysqli_fetch_array($result)) {         
-                echo "<tr>";
-                    echo "<td>".$row['supplier_name']."</td>";
-                    echo "<td>".$row['supply_type']."</td>";  
-                    echo "<td>";
-	                echo "<a href='edit.php?id=". $row['branch_id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-	                echo "<a href='delete.php?id=". $row['branch_id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
-	                echo "</td>";
-                    // echo "<td><a href='edit.php?id=$row[worker_id]'>Edit</a>";
-                    // echo "<td><a href='delete.php?id=$row[worker_id]'>Delete</a>";        
-                echo "<tr>";
-            }
-            ?>
-        </table>
+            // Fetch all users data from database
+            $result = mysqli_query($mysqli, "SELECT * FROM branch_supplier ORDER BY branch_id ASC"); 
+            //WHERE active_status=1
+        ?>
+
+        <div class="container">
+	    	<!-- <nav>
+	    		<ul>
+	    			<li><a class="homepagelink" href="/CompanyDB-Quinna/Homepage.php">Quinna</a></li>
+	    			<li><a class="activelink" href="Branch/index.php">Branch</a></li>
+	    			<li><a class="activelink" href="Supplier/index.php">Supplier</a></li>
+	    			<li><a class="activelink" href="Employee/index.php">Employee</a></li>
+	    		</ul>
+	    	</nav> -->
+            
+            <div class="page-header clearfix">
+                <h2 class="pull-left">Supplier Details</h2>
+                <a href="/CompanyDB-Quinna/Homepage.php" class="btn btn-success pull-right">Back to Home</a>
+	            <a href="add.php" class="btn btn-success pull-right">Add New Supplier</a>
+            </div>
+            
+            <table class='table table-bordered table-striped' width='80%' border=1>
+                <tr>
+                    <th>Supplier Name</th> 
+                    <th>Supply Type</th>
+                    <th>Update</th>
+                </tr>
+                <?php  
+                    while($row = mysqli_fetch_array($result)) {         
+                        echo "<tr>";
+                            echo "<td>".$row['supplier_name']."</td>";
+                            echo "<td>".$row['supply_type']."</td>";  
+                            echo "<td>";
+	                        echo "<a href='edit.php?id=". $row['branch_id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+	                        echo "<a href='delete.php?id=". $row['branch_id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+	                        echo "</td>";       
+                        echo "<tr>";
+                    }
+                ?>
+            </table>
+	    </div>
     </body>
 </html>

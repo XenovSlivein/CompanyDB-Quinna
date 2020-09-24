@@ -7,18 +7,20 @@
     	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	</head>
 	<body>
-		<nav>
-			<a class="homepagelink" href="Homepage.php">Quinna</a>
-			<ul>
-				<!-- <li><a class="activelink" href="Employee_Details.php">Employee Details</a></li> -->
-				<li><a class="activelink" href="Branch/index.php">Branch</a></li>
-				<li><a class="activelink" href="Supplier/index.php">Supplier</a></li>
-				<li><a class="activelink" href="Employee/index.php">Employee</a></li>
-			</ul>
-		</nav>
+		<!-- <nav class="header-nav"></nav> -->
+		<div class="container">
+			<nav id="mySidenav" class="sidenav">
+				<ul>
+					<li><a class="homepagelink" href="Homepage.php">Quinna</a></li>
+					<li><a class="activelink" href="Branch/index.php">Branch</a></li>
+					<li><a class="activelink" href="Supplier/index.php">Supplier</a></li>
+					<li><a class="activelink" href="Employee/index.php">Employee</a></li>
+				</ul>
+			</nav>
 
-		<div class="contact-title">
-			<h1>WELCOME TO COMPANY</h1>
+			<div class="contact-title main">
+				<h1>WELCOME TO COMPANY</h1>
+			</div>
 		</div>
 	</body>
 </html>

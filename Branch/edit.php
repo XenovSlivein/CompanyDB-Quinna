@@ -51,7 +51,7 @@ while($user_data = mysqli_fetch_array($result))
         <form name="update_user" method="post" action="edit.php">
             <table border="0">
                 <tr> 
-                    <td>#</td>
+                    <td>Branch ID</td>
                     <td><input type="text" name="branch_id" value=<?php echo $branch_id;?> readonly></td>
                 </tr>
                 <tr> 

@@ -10,7 +10,7 @@
         <form action="add.php" method="post" name="Form_Add">
             <table width="25%" border="0">
                 <tr> 
-                    <td>#</td>
+                    <td>Branch ID</td>
                     <?php
                         // include database connection file
                         include_once("D:\\Xampp\\htdocs\\CompanyDB-Quinna\\config.php");
@@ -25,6 +25,7 @@
                     <td><input type="text" name="branch_name"></td>
                 </tr>
                 <tr> 
+                <!-- ManagerID only can be selected when AddNewBranch and can't be changed once selected. -->
                     <td>Manager ID</td>
                     <td>
                     <form method="POST">

@@ -33,17 +33,17 @@ $result = mysqli_query($mysqli, "SELECT * FROM branch ORDER BY branch_id ASC");
 	    </script>
     </head>
     <body>
-        <nav>
+        <!-- <nav>
 		    <a class="homepagelink" href="Homepage.php">Company</a>
 			<ul>
-				<!-- <li><a class="activelink" href="branch/index.php">Branch</a></li> -->
 				<li><a class="activelink" href="Employee/index.php">Employee</a></li>
 				<li><a class="activelink" href="Supplier/index.php">Supplier</a></li>
 			</ul>
-        </nav>
+        </nav> -->
                 
         <div class="page-header clearfix">
-	        <h2 class="pull-left">branchs Details</h2>
+            <h2 class="pull-left">Branchs Details</h2>
+            <a href="/CompanyDB-Quinna/Homepage.php" class="btn btn-success pull-right">Back to Home</a>
 	        <a href="add.php" class="btn btn-success pull-right">Add New branch</a>
         </div>
         

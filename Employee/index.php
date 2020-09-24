@@ -32,17 +32,18 @@ $result = mysqli_query($mysqli, "SELECT * FROM employee WHERE active_status=1 OR
 	    </script>
     </head>
     <body>
-        <nav>
+        <!-- <nav>
 		    <a class="homepagelink" href="Homepage.php">Company</a>
 			<ul>
 				<li><a class="activelink" href="Employee/Employee_Details.php">Employee Details</a></li>
 				<li><a class="activelink" href="Branch_Details.php">Branch</a></li>
 				<li><a class="activelink" href="Supplier_Details.php">Supplier</a></li>
 			</ul>
-        </nav>
+        </nav> -->
                 
         <div class="page-header clearfix">
-	        <h2 class="pull-left">Employees Details</h2>
+            <h2 class="pull-left">Employees Details</h2>
+            <a href="/CompanyDB-Quinna/Homepage.php" class="btn btn-success pull-right">Back to Home</a>
 	        <a href="add.php" class="btn btn-success pull-right">Add New Employee</a>
         </div>
         
